@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyWeb</title>
+
+    <link rel = "stylesheet" href = "css/styles.css" type 
+    = "text/css">
+
+    <script src = "javascript/script.js" type = "text/javascript"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/full.js"></script> 
+
+    <script src="https://kit.fontawesome.com/dc4f3925ae.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        .top_nav1 {
+            display: inline-flex;
+            background-color: rgb(247, 247, 247);
+            width: 100%;
+            height: 35px;
+            font-family: 'PingFangSC-Regular','-apple-system','Simsun';
+            font-size: 12px;
+            border-bottom: 0.1px solid rgb(212, 212, 212);
+        }
+
+        .elemental_center {
+            display: inline-flex;
+            align-items: center;
+            margin-left: 12%;
+            width: 75%;
+        }
+
+        .link {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: left;
+            width: 100%;
+        }
+
+        #qidian {
+            display: inline-flex;
+            align-items: center;
+            background-color: white;
+            text-decoration: none;
+            padding: 0 10px;
+            height: 36px;
+            color: gray;
+            border-left: 0.1px solid rgb(212, 212, 212);
+            border-right: 0.1px solid rgb(212, 212, 212);
+            border-bottom: none;
+            transition: color 0.5s ease;
+        }
+
+        #nvsheng {
+            display: inline-flex;
+            align-items: center;
+            padding-left: 10px;
+            padding-right: 9px;
+            height: 35px;
+            text-decoration: none;
+            color: gray;
+            transition: color 0.5s ease;
+        }
+
+        #switch {
+            display: inline-flex;
+            align-items: center;
+            padding: 0 9px;
+            height: 35px;
+            text-decoration: none;
+            color: gray;
+            transition: color 0.5s ease;
+        }
+
+        #qidian:hover {
+            color: red;
+        }
+
+        #nvsheng:hover {
+            color: red;
+        }
+
+        #switch:hover {
+            color: red;
+        }
+
+        .LogRig {
+            display: inline-flex;
+            align-items: center;
+            justify-content: right;
+            width: 100%;
+        }
+
+        #login {
+            display: inline-flex;
+            align-items: center;
+            padding: 0 9px;
+            height: 35px;
+            text-decoration: none;
+            color: black;
+            transition: color 0.5s ease;
+        }
+
+        #register {
+            display: inline-flex;
+            align-items: center;
+            padding-left: 9px;
+            padding-right: 0px;
+            height: 35px;
+            text-decoration: none;
+            color: rgb(150, 150, 150);
+            transition: color 0.5s ease;
+        }
+
+        #login:hover {
+            color: red;
+        }
+
+        #register:hover {
+            color: red;
+        }
+
+        #other1 {
+            display: inline-flex;
+            color: rgb(179, 179, 179);
+            font-weight: 100;
+        }
+
+        .top_nav2 {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 12%;
+            width: 75%;
+            height: 84px;
+        }
+
+        #img1 {
+            display: inline-flex;
+            align-items: center;
+            padding-top: 5px;
+        }
+
+        #search {
+            display: inline-flex;
+            align-items: center;
+            height: 84px;
+            transform: translateX(-14%);
+        }
+
+        #search_box {
+            display: inline-flex;
+            align-items: center;
+            height: 37px;
+            width: 325.5px;
+            padding: 0 11px;
+            border: 0.5px solid rgb(172, 172, 172);
+            border-right: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        #search_box::placeholder {
+            padding-top: 10px;
+            color: rgb(210, 210, 210);
+            font-family: 'PingFangSC-Regular', '-apple-system', 'Simsun';
+            font-weight: 100;
+        }
+
+        #search_list {
+            display: none;
+            position: absolute;
+            margin-top: 8px;
+            width: 345px;
+            top: 63%;
+            left: 1px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            transform: translateZ(10px) !important;
+        }
+
+        #search_list ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 5px 7px;
+        }
+
+        #first {
+            width: 334px;
+            height: 31px;
+            padding: 4px 6px;
+        }
+
+        #first strong {
+            display: block;
+            width: 310px;
+            height: 29px;
+            padding: 0px 12px;
+            border-bottom: 1px solid #f0f0f0;
+            background-color: rgb(247, 247, 247);
+            color: gray;
+            font-family: 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif';
+            font-size: 14px;
+            line-height: 32px;
+        }
+
+        .content {
+            width: 320px;
+            height: 30px;
+            padding: 0px 12px;
+        }
+
+        .content a {
+            display: block;
+            width: 322px;
+            height: 32px;
+            text-decoration: none;
+            line-height: 32px;
+            font-size: 14px;
+            font-family: 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif';
+            color: black;
+        }
+
+        .content:hover {
+            cursor: pointer;
+            background-color: rgb(240, 240, 240);
+        }
+
+        #search_button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 40px;
+            text-decoration: none;
+            border: 0.1px solid white;
+            background-color: #bf2c24;
+            transition: background-color 0.5s ease;
+        }
+        
+        #search_button:hover {
+            background-color: rgb(220, 80, 92);
+        }
+
+        #icon1 {
+            font-size: 18px;
+            color: white;
+        }
+
+        #bookshelf1 {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        #bookshelf2 {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'PingFangSC-Regular','-apple-system','Simsun';
+            font-size: 14px;
+            height: 38px;
+            width: 118px;
+            border: 1px solid rgb(222, 222, 222);
+            color: black;
+            transition: color 0.5s ease;
+            transition: background-color 0.5s ease;
+        }
+
+        #bookshelf2:hover {
+            background-color: rgb(220, 80, 92);
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class = "top_nav1">
+        <div class = "elemental_center">
+            <div class = "link">
+                <a href = "https://www.qidian.com/" id = "qidian" target="_blank">起点中文网</a>
+                <a href = "https://www.qdmm.com/" id = "nvsheng" target="_blank">起点女生网</a>
+                <div id = "other1">|</div>
+                <a href = "javascript:" id = "switch">繁体版</a>
+            </div>
+            <div class = "LogRig">
+                <a href = "javascript:" id = "login">登录</a>
+                <div id = "other1">|</div>
+                <a href = "javascript:" id = "register">注册</a>
+            </div>
+        </div>
+    </div>
+    <div class = "top_nav2">
+        <div id = "img1">
+            <a href = "https://www.qidian.com/" target="_blank"><img src = "images/logo.png" alt = "logo" width = "216px" height = "55px"></a>
+        </div>
+        <div id = "search">
+            <input type = "text" placeholder= "炮火弧线" id = "search_box">
+            <div id = "search_list">
+                <div id = "first">
+                    <strong>大家都在搜</strong>
+                </div>
+                <div class = "content">
+                    <a href = "https://www.qidian.com/so/%E5%A4%A9%E5%80%BE%E4%B9%8B%E5%90%8E.html" target="_blank">天倾之后</a>
+                </div>
+                <div class = "content">
+                    <a href = "https://www.qidian.com/so/%E7%A5%9E%E4%BD%9B%E7%AB%9F%E6%98%AF%E6%88%91%E8%87%AA%E5%B7%B1.html" target="_blank">神佛竟是我自己</a>
+                </div>
+                <div class = "content">
+                    <a href = "https://www.qidian.com/so/%E6%88%91%E7%9A%84%E7%88%B6%E4%BA%B2%E5%A4%AA%E5%8A%AA%E5%8A%9B%E4%BA%86.html" target="_blank">我的父亲太努力了</a>
+                </div>
+                <div class = "content">
+                    <a href = "https://www.qidian.com/so/%E6%9F%90%E7%BE%8E%E6%BC%AB%E7%9A%84%E6%B0%AA%E5%91%BD%E4%BA%BA%E7%94%9F.html" target="_blank">某美漫的氪命人生</a>
+                </div>
+                <div class = "content">
+                    <a href = "https://www.qidian.com/so/%E5%8C%97%E8%BE%B0%E5%89%91%E5%AE%97%E6%8E%8C%E9%97%A8%E7%A7%98%E5%BD%95undefined.html" target="_blank">北辰剑宗掌门秘录</a>
+                </div>
+                <div class = "content">
+                    <a href = "https://www.qidian.com/so/%E4%BA%BA%E5%9C%A8%E7%A7%A6%E6%97%B6%EF%BC%8C%E5%87%86%E5%A4%87%E6%88%90%E5%B8%9D.html" target="_blank">人在秦时，准备成帝</a>
+                </div>
+                <div class = "content">
+                    <a href = "https://www.qidian.com/so/%E6%88%91%E7%9A%84%E4%BF%AE%E8%A1%8C%E6%97%81%E7%99%BD%E6%9C%89%E8%AF%A1%E5%BC%82.html" target="_blank">我的修行旁白有诡异</a>
+                </div>
+                <div class = "content">
+                    <a href = "https://www.qidian.com/so/%E4%BD%A0%E8%BF%99%E5%BE%8B%E5%B8%88%E4%B8%8D%E5%AF%B9%E5%8A%B2.html" target="_blank">你这律师不对劲</a>
+                </div>
+                <div class = "content">
+                    <a href = "https://www.qidian.com/so/%E9%BE%99%E7%8F%A0%EF%BC%9A%E8%B6%85%E5%9B%9B%E9%9C%87%E6%83%8A%E7%A0%B4%E5%9D%8F%E7%A5%9E.html" target="_blank">龙珠：超四震惊破坏神</a>
+                </div>
+                <div class = "content">
+                    <a href = "https://www.qidian.com/so/%E5%A4%A7%E5%A4%8F%E6%98%8E%E9%95%9C.html" target="_blank">大夏明镜</a>
+                </div>
+            </div>
+            <a id = "search_button" href = "https://www.qidian.com/so/炮火弧线.html" target="_blank">
+                <i class="fas fa-search" id = "icon1"></i>
+            </a>
+        </div>
+        <a href = "https://www.qidian.com/" id = "bookshelf1" target="_blank">
+            <div id = "bookshelf2">
+                <em id = "icon2">
+                    
+                </em>
+                <div id = "shelf1">我的书架</div>
+            </div>
+        </a>
+    </div>
+
+    <script>
+
+        document.addEventListener('click', function(event){
+            var searchBox = document.getElementById('search_box');
+            var searchList = document.getElementById('search_list');
+            if (event.target == searchBox)
+            {
+                if (searchList.style.display == 'none')
+                    searchList.style.display = 'block';
+                else
+                    searchList.style.display = 'none';
+            }
+            else if (event.target != searchList)
+            {
+                alert('1');
+                searchList.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('click', function(event){
+            var getContent = document.getElementById('search_box').value;
+            var searchIcon = document.getElementById('icon1');
+            var searchButton = document.getElementById('search_button');
+            newContent = "https://www.qidian.com/so/" + getContent + ".html";
+            if (event.target == searchIcon)
+                searchButton.setAttribute('href', newContent);
+        });
+
+        document.addEventListener('click', function(event)
+        {
+            const s2t = OpenCC.Converter({ from: 'cn', to: 'tw' });
+            const t2s = OpenCC.Converter({ from: 'tw', to: 'cn' });
+
+            var switchButton = document.getElementById('switch');
+            var isTraditional = switchButton.innerHTML == '繁体版';
+
+            if (event.target == switchButton)
+            {
+                if (isTraditional)
+                    switchButton.innerHTML = '简体版';
+                else
+                    switchButton.innerHTML = '繁体版';
+            }
+
+            var converter = isTraditional ? s2t : t2s;
+
+            var elements = document.body.getElementsByTagName('*');
+            
+            if (event.target == switchButton)
+            {
+                for (var i = 0; i < elements.length; i++)
+                {
+                    var element = elements[i];
+                    for (var j = 0; j < element.childNodes.length; j++)
+                    {
+                        var node = element.childNodes[j];
+                        if (node.nodeType == 3)
+                        {
+                            var text = node.nodeValue;
+                            var convertedText = converter(text)
+                            node.nodeValue = convertedText;
+                        }
+                    }
+                }
+                document.getElementById('search_box').setAttribute('placeholder', converter(document.getElementById('search_box').placeholder));
+            }
+        });
+    </script>
+
+</body>
+</html>
